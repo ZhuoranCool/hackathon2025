@@ -1,63 +1,59 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>OdinView | schedule</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <body style = "background-color: rgb(141, 169, 196);">
-    <div id="header"><a href = "home.html"><h1>OdinView</h1></a></div>
-    <nav id="navbar">
-    <ul>
-        <a href = "map.html">
-            <button style = "font-size: 25px; background-color: rgb(238, 244, 237); color: rgb(64, 55, 110); border-radius: 8px;">Map</button>
-        </a>
-        <a href = "schedule.html">
-            <button style = "font-size: 25px; background-color: rgb(238, 244, 237); color: rgb(64, 55, 110); border-radius: 8px;">Schedule</button>
-        </a>
-        <a href = "settings.html">
-            <button style = "font-size: 25px; background-color: rgb(238, 244, 237); color: rgb(64, 55, 110); border-radius: 8px;">Settings</button>
-        </a>
-        <a href = "resources.html">
-            <button style = "font-size: 25px; background-color: rgb(238, 244, 237); color: rgb(64, 55, 110); border-radius: 8px;">Resources</button>
-        </a>
-    </ul></nav>
+<html>
+  <head>
+    <title>Place ID Finder</title>
 
-    <p style = "font-size: 45px;">Schedule Placeholder</p>
-    <footer id="footer" style="color:grey;">SHEinnovates hackathon 2025</footer>
-    
-    <style>
-    #header {
-        background-color: #1C448E;
-            color: #FFFFFF;
-            text-align: center;
-        width: 100%;
-        height: 50px; 
-        border-radius: 15px;
-    }
-        #header a {
-            color: #FFFFFF;
-        }
-    #navbar {
-        height: 50px;
-        width: 100%;
-    }
-    #navbar ul {
-                    display: flex;
-                    padding: 0;
-                    margin: 10px;
-                    list-style-type: none;
-                    justify-content: space-evenly;
-                }
-                footer {
-                background-color: #1C448E;
-                width: 100%;
-                height: 30px;
-                padding: 5px;
-                text-align: center;
-            }
-            </style>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
+  </head>
+  <body>
 
-</body>
+    <div id="container">
+        <div id="map"></div>
+        <div id="sidebar">
+            <div id="daySelector">
+                <button class="dayButton" data-day="Monday">Mon</button>
+                <button class="dayButton" data-day="Tuesday">Tue</button>
+                <button class="dayButton" data-day="Wednesday">Wed</button>
+                <button class="dayButton" data-day="Thursday">Thu</button>
+                <button class="dayButton" data-day="Friday">Fri</button>
+            </div>
+            <button id="viewPrev">view prev</button>
+            <button id="viewNext">view next</button>
+            <div id="accessibilityOptions">
+                <label for="wheelchairAccess">
+                    <input type="checkbox" id="wheelchairAccess" name="wheelchairAccess">
+                    Wheelchair Access
+                </label>
+                <a href="https://www.diversity.pitt.edu/disability-resources-services/disability-resources-services">Need More Help?</a>
+            </div>
+            <div id="info">
+                <h1 id="ifLate">You'll be Late!</h1>
+                <h2>Interval Start Info</h2>
+                <p id="startBuilding">Building: </p>
+                <p id="startAddress">Address: </p>
+                <p id="leaveTime">Earlist Pretend Leave Time: </p>
+                <div id="startTable"></div>
+                <a href="https://www.ieee-iri.org/studentaffairs_subdomain/sensq.html" id="startBuilding" >Need more details? Click here</a>
+                <h2>Interval End Info</h2>
+                <p id="endBuilding">Building: </p>
+                <p id="endAddress">Address: </p>
+                <p id="arriveTime">Latest Pretend Arrive Time: </p>
+                <div id="endTable"></div>
+                <a href="https://www.ieee-iri.org/studentaffairs_subdomain/cl.html" id="endBuilding">Need more details? Click here</a>
+            </div>
+            <div id="routeInfo"></div>
+        </div>
+      </div>
+    <!-- 
+      The `defer` attribute causes the script to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises. See
+      https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqNVkMuELlcQuWP6R8mVhyxNUhQ651Ujc&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script>
+  </body>
 </html>
