@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OdinView | Settings</title>
-    
+    <link rel="icon" type="image/png" href="Althetic_Facilities.png">
 </head>
 <body>
     <body style = "background-color: rgb(141, 169, 196);">
@@ -51,6 +51,14 @@
         }
 
     </script>
+ <label for="disabilty">Disabilities (hold down crt to select multiple): </label>
+        <br>
+        <select name="disability" id="disability" multiple>
+            <option value="1">wheelchair</option>
+            <option value="2">cane/assisted walking</option>
+            <option value="3">service animals</option>
+        </select>
+        
         <footer id="footer" style="color:grey;">SHEinnovates hackathon 2025</footer>
     
     <style>
@@ -83,6 +91,15 @@
                 padding: 5px;
                 text-align: center;
             }
+        .slider{
+            height: 25px;
+            opacity:.7;
+            width: 75%;
+            outline: none;
+        }
+        .slider:hover {
+            opacity: 1
+        }
         </style>
 </body>
 </html>
